@@ -1,0 +1,19 @@
+const path = require('path')
+const express = require('express')
+
+
+console.log(__dirname)
+const port = process.env.PORT || 3000
+//Port for heroku 
+const app = express()
+const publicDirectoryPath = path.join(__dirname, '/public')
+app.use(express.static(publicDirectoryPath))
+
+app.get('', (req, res) => {
+    res.send('<h1>Jordains Date Subtractor</h1>')
+    
+})
+
+app.listen(port, () => {
+    console.log('Server is up on port' + port)
+})
