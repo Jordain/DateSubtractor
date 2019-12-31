@@ -4612,12 +4612,44 @@ const dateForm = document.querySelector('form')
 const psDate = document.querySelector('input.psDate')
 const subMonth = document.querySelector('input.subMonth')
 const messageOne = document.querySelector('#message-1')
+const messageTwo = document.querySelector('#message-2')
+const messageThree = document.querySelector('#message-3')
+const messageFour = document.querySelector('#message-4')
+const messageFive = document.querySelector('#message-5')
 
+addEventListener('load', (e) => {
+    e.preventDefault()
+    const date = moment().subtract(5, 'years')
+    const formatDate = moment(date).format("DDMMMYY")
+    console.log(formatDate)
+    messageTwo.innerHTML = `SSELECT FI-WIP WITH MAKE-NEW EQ "BMW" AND WITH BUYER-FIRST NE "" AND WITH SOLD GE "${formatDate}" BY DEAL <br /><br />
+    LIST FI-WIP F-DATE BUYER-FIRST BUYER-LAST BUYER-STREET BUYER-CITY BUYER-STATE BUYER-ZIP BUYER-PHONE1
+     BUYER-PHONE2 SALESMAN SERIAL-NEW MAKE-NEW NEW/USED LAST-SERVICE  
+     FINANCE-CO TERM APR MONTHLY-PMT FINANCE-TOTAL BUYER.CELL SOLD PLC ID-SUPP <br /><br /><br /><br />
+    `
+    messageThree.innerHTML = `SSELECT NAME-FILE WITH SOLD EQ "" AND WITH LAST-SERVICE GE "${formatDate}" AND WITH LAST-SERVICE NE "" AND WITH MAKE EQ "BMW"<br /><br />
 
+    LIST NAME-FILE ADDRESS ADDRESS2 BLOCK.EMAIL BLOCK.MAIL BLOCK.PHONE CITY 
+     EMAIL NAME1.FIRST NAME1.LAST STATE CELLULAR HOME.PHONE WORK.PHONE ZIP.10 LAST-SERVICE SOLD SERIAL YEAR MAKE MODEL <br /><br /><br /><br />`
+
+    messageFour.innerHTML = `SSELECT FI-WIP WITH BUYER-FIRST NE "" AND WITH SOLD GE "${formatDate}" BY DEAL <br /><br />
+     LIST FI-WIP F-DATE BUYER-FIRST BUYER-LAST BUYER-STREET BUYER-CITY BUYER-STATE BUYER-ZIP BUYER-PHONE1
+      BUYER-PHONE2 SALESMAN SERIAL-NEW MAKE-NEW NEW/USED LAST-SERVICE  
+      FINANCE-CO TERM APR MONTHLY-PMT FINANCE-TOTAL BUYER.CELL SOLD PLC ID-SUPP <br /><br /><br /><br />
+     `
+    messageFive.innerHTML = `SSELECT NAME-FILE WITH SOLD EQ "" AND WITH LAST-SERVICE GE "${formatDate}" AND WITH LAST-SERVICE NE ""<br /><br />
+
+     LIST NAME-FILE ADDRESS ADDRESS2 BLOCK.EMAIL BLOCK.MAIL BLOCK.PHONE CITY 
+      EMAIL NAME1.FIRST NAME1.LAST STATE CELLULAR HOME.PHONE WORK.PHONE ZIP.10 LAST-SERVICE SOLD SERIAL YEAR MAKE MODEL <br /><br /><br /><br />`
+ })
+ 
 dateForm.addEventListener('submit', (e) => {
    e.preventDefault()
    const newDate = moment(psDate.value).subtract(subMonth.value,'months')
    const formatDate = moment(newDate).format("YYYY-MM-DD")
    messageOne.textContent = formatDate
 })
+
+
+
 },{"moment":1}]},{},[2]);
