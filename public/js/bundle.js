@@ -4609,6 +4609,7 @@ const moment = require('moment')
 
 
 const dateForm = document.querySelector('form')
+
 const psDate = document.querySelector('input.psDate')
 const subMonth = document.querySelector('input.subMonth')
 const messageOne = document.querySelector('#message-1')
@@ -4616,33 +4617,94 @@ const messageTwo = document.querySelector('#message-2')
 const messageThree = document.querySelector('#message-3')
 const messageFour = document.querySelector('#message-4')
 const messageFive = document.querySelector('#message-5')
+//const copyText2 = document.getElementById('message-2Click').addEventListener("click", copyText("test"))
+
 
 addEventListener('load', (e) => {
     e.preventDefault()
     const date = moment().subtract(5, 'years')
     const formatDate = moment(date).format("DDMMMYY")
     console.log(formatDate)
-    messageTwo.innerHTML = `SSELECT FI-WIP WITH MAKE-NEW EQ "BMW" AND WITH BUYER-FIRST NE "" AND WITH SOLD GE "${formatDate}" BY DEAL <br /><br />
-    LIST FI-WIP F-DATE BUYER-FIRST BUYER-LAST BUYER-STREET BUYER-CITY BUYER-STATE BUYER-ZIP BUYER-PHONE1
-     BUYER-PHONE2 SALESMAN SERIAL-NEW MAKE-NEW NEW/USED LAST-SERVICE  
-     FINANCE-CO TERM APR MONTHLY-PMT FINANCE-TOTAL BUYER.CELL SOLD PLC ID-SUPP <br /><br /><br /><br />
-    `
-    messageThree.innerHTML = `SSELECT NAME-FILE WITH SOLD EQ "" AND WITH LAST-SERVICE GE "${formatDate}" AND WITH LAST-SERVICE NE "" AND WITH MAKE EQ "BMW"<br /><br />
+    messageTwo.innerHTML = `SSELECT FI-WIP WITH MAKE-NEW EQ "BMW" AND WITH BUYER-FIRST NE "" AND WITH SOLD GE "${formatDate}"<br /><br />
+    LIST FI-WIP BUYER-NO. BUYER-FIRST BUYER-LAST BUYER-STREET BUYER-CITY BUYER-STATE BUYER-ZIP BUYER-PHONE1 BUYER-PHONE2 BUYER.CELL
+     427.1 BLOCK.EMAIL BLOCK.MAIL SOLD LAST-SERVICE PLC FINANCE-CO CASH-P FINANCE-TOTAL CASH-D MONTHLY-PMT APR-FULL TERM  
+     SERIAL-NEW MAKE-NEW MODEL-NEW STOCK-NO. NEW/USED VEH-YR2 MILEAGE SALESMAN<br /><br /><br /><br />`
 
-    LIST NAME-FILE ADDRESS ADDRESS2 BLOCK.EMAIL BLOCK.MAIL BLOCK.PHONE CITY 
-     EMAIL NAME1.FIRST NAME1.LAST STATE CELLULAR HOME.PHONE WORK.PHONE ZIP.10 LAST-SERVICE SOLD SERIAL YEAR MAKE MODEL <br /><br /><br /><br />`
+    messageThree.innerHTML = `SSELECT NAME-FILE WITH MAKE-NEW EQ "BMW" AND WITH SOLD EQ "" AND WITH LAST-SERVICE NE "" AND WITH LAST-SERVICE GE "${formatDate}"<br /><br />
 
-    messageFour.innerHTML = `SSELECT FI-WIP WITH BUYER-FIRST NE "" AND WITH SOLD GE "${formatDate}" BY DEAL <br /><br />
-     LIST FI-WIP F-DATE BUYER-FIRST BUYER-LAST BUYER-STREET BUYER-CITY BUYER-STATE BUYER-ZIP BUYER-PHONE1
-      BUYER-PHONE2 SALESMAN SERIAL-NEW MAKE-NEW NEW/USED LAST-SERVICE  
-      FINANCE-CO TERM APR MONTHLY-PMT FINANCE-TOTAL BUYER.CELL SOLD PLC ID-SUPP <br /><br /><br /><br />
-     `
-    messageFive.innerHTML = `SSELECT NAME-FILE WITH SOLD EQ "" AND WITH LAST-SERVICE GE "${formatDate}" AND WITH LAST-SERVICE NE ""<br /><br />
+    LIST NAME-FILE NAME1.COMPANY NAME1.FIRST NAME1.LAST ADDRESS ADDRESS2 CITY STATE ZIP.10 HOME.PHONE WORK.PHONE
+     CELLULAR EMAIL BLOCK.PHONE BLOCK.EMAIL BLOCK.MAIL SOLD LAST-SERVICE SERIAL MAKE MODEL YEAR<br /><br /><br /><br />`
 
-     LIST NAME-FILE ADDRESS ADDRESS2 BLOCK.EMAIL BLOCK.MAIL BLOCK.PHONE CITY 
-      EMAIL NAME1.FIRST NAME1.LAST STATE CELLULAR HOME.PHONE WORK.PHONE ZIP.10 LAST-SERVICE SOLD SERIAL YEAR MAKE MODEL <br /><br /><br /><br />`
- })
- 
+    messageFour.innerHTML = `SSELECT FI-WIP WITH BUYER-FIRST NE "" AND WITH SOLD GE "${formatDate}"<br /><br />
+    LIST FI-WIP BUYER-NO. BUYER-FIRST BUYER-LAST BUYER-STREET BUYER-CITY BUYER-STATE BUYER-ZIP BUYER-PHONE1 BUYER-PHONE2 BUYER.CELL
+     427.1 BLOCK.EMAIL BLOCK.MAIL SOLD LAST-SERVICE PLC FINANCE-CO CASH-P FINANCE-TOTAL CASH-D MONTHLY-PMT APR-FULL TERM
+     SERIAL-NEW MAKE-NEW MODEL-NEW STOCK-NO. NEW/USED VEH-YR2 MILEAGE SALESMAN<br /><br /><br /><br />`
+
+    messageFive.innerHTML = `SSELECT NAME-FILE WITH MAKE-NEW EQ "BMW" AND WITH SOLD EQ "" AND WITH LAST-SERVICE NE "" AND WITH LAST-SERVICE GE "${formatDate}"<br /><br />
+
+    LIST NAME-FILE NAME1.COMPANY NAME1.FIRST NAME1.LAST ADDRESS ADDRESS2 CITY STATE ZIP.10 HOME.PHONE WORK.PHONE 
+     CELLULAR EMAIL BLOCK.PHONE BLOCK.EMAIL BLOCK.MAIL SOLD LAST-SERVICE SERIAL MAKE MODEL YEAR<br /><br /><br /><br />`
+    
+
+})
+// const executeCopy = function(message){
+//     const copyHelper = document.createElement("input")
+//     copyHelper.className = 'copyHelper'
+//     document.body.appendChild(copyHelper)
+//     copyHelper.value = message.innerHTML
+//     copyHelper.select()
+//     document.execCommand("copy")
+//     alert("English Statement has been copied to clipboard.")
+//     document.body.removeChild(copyHelper)
+// }
+// const executeCopy = function(message){
+//     const p=message.nextElementSibling
+//     const r=document.createRange()
+//     r.selectNode(p)
+//     window.getSelection().addRange(r)
+//     document.execCommand("copy")
+//     alert("English Statement has been copied to clipboard.")
+//     document.body.removeChild(copyHelper)
+// }
+
+// document.getElementById('copyText2').addEventListener('click', function() {executeCopy(messageTwo)})
+executeCopy = function(message){
+    //do more research into the range function
+    let range = new Range()
+    range.setStart(message, 0)
+    range.setEnd(message, 6)
+    console.log(range)
+    window.getSelection().removeAllRanges()
+    window.getSelection().addRange(range)
+    console.log(window.getSelection())
+    document.execCommand("copy")
+    alert("English Statement has been copied to clipboard. ")
+}
+document.getElementById('copyText2').addEventListener('click', function() {executeCopy(messageTwo)})
+document.getElementById('copyText3').addEventListener('click', function() {executeCopy(messageThree)})
+document.getElementById('copyText4').addEventListener('click', function() {executeCopy(messageFour)})
+document.getElementById('copyText5').addEventListener('click', function() {executeCopy(messageFive)})
+
+
+// copyText2.addEventListener("click", e=>{
+//     let range = new Range()
+//     range.setStart(messageTwo, 0)
+//     range.setEnd(messageTwo, 6)
+//     console.log(range)
+//     //const p=e.target.nextElementSibling
+//     //const r=document.createRange()
+//     //r.selectNode(p)
+//     window.getSelection().removeAllRanges()
+    
+//     window.getSelection().addRange(range)
+//     console.log(window.getSelection())
+//     document.execCommand("copy")
+//     alert("English Statement has been copied to clipboard. ")
+    
+//   })
+//document.getElementById('copyText2').addEventListener('click', function() {executeCopy(function() {inputHelper(messageTwo.innerHTML)})})
+
+
 dateForm.addEventListener('submit', (e) => {
    e.preventDefault()
    const newDate = moment(psDate.value).subtract(subMonth.value,'months')
