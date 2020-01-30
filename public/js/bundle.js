@@ -436,7 +436,7 @@
 
     function longDateFormat (key) {
         var format = this._longDateFormat[key],
-            formatUpper = this._longDateFormat[key.toUpperCase()];
+            formatUpper = this._longDateFormat[key()];
 
         if (format || !formatUpper) {
             return format;
