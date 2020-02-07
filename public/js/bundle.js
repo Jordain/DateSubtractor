@@ -4617,6 +4617,7 @@ const messageTwo = document.querySelector('#message-2')
 const messageThree = document.querySelector('#message-3')
 const messageFour = document.querySelector('#message-4')
 const messageFive = document.querySelector('#message-5')
+const messageSix = document.querySelector('#message-6')
 //const copyText2 = document.getElementById('message-2Click').addEventListener("click", copyText("test"))
 
 
@@ -4646,7 +4647,11 @@ addEventListener('load', (e) => {
 
     LIST NAME-FILE NAME1.COMPANY NAME1.FIRST NAME1.LAST ADDRESS ADDRESS2 CITY STATE ZIP.10 HOME.PHONE WORK.PHONE&nbsp 
     <br />CELLULAR EMAIL BLOCK.PHONE BLOCK.EMAIL BLOCK.MAIL SOLD LAST-SERVICE SERIAL MAKE MODEL YEAR<br /><br /><br /><br />`
-    
+
+    messageSix.innerHTML = `SSELECT NAME-FILE WITH LAST-SERVICE NE "" AND WITH LAST-SERVICE GE "${formatDate}"<br /><br />
+
+    LIST NAME-FILE NAME1.COMPANY NAME1.FIRST NAME1.LAST ADDRESS ADDRESS2 CITY STATE ZIP.10 HOME.PHONE WORK.PHONE&nbsp 
+    <br />CELLULAR EMAIL BLOCK.PHONE BLOCK.EMAIL BLOCK.MAIL SOLD LAST-SERVICE SERIAL MAKE MODEL YEAR<br /><br /><br /><br />`
 
 })
 // const executeCopy = function(message){
@@ -4686,6 +4691,7 @@ document.getElementById('copyText2').addEventListener('click', function() {execu
 document.getElementById('copyText3').addEventListener('click', function() {executeCopy(messageThree)})
 document.getElementById('copyText4').addEventListener('click', function() {executeCopy(messageFour)})
 document.getElementById('copyText5').addEventListener('click', function() {executeCopy(messageFive)})
+document.getElementById('copyText6').addEventListener('click', function() {executeCopy(messageSix)})
 
 
 // copyText2.addEventListener("click", e=>{
