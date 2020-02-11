@@ -4612,14 +4612,6 @@ const psDate = document.querySelector('input.psDate')
 const subMonth = document.querySelector('input.subMonth')
 const messageOne = document.querySelector('#message-1')
 
-// DATE Calculator
-dateForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const newDate = moment(psDate.value).subtract(subMonth.value,'months')
-    const formatDate = moment(newDate).format("YYYY-MM-DD")
-    messageOne.textContent = formatDate
- })
-
 
 const messageTwo = document.querySelector('#message-2')
 const messageThree = document.querySelector('#message-3')
@@ -4661,6 +4653,11 @@ addEventListener('load', (e) => {
     LIST NAME-FILE NAME1.COMPANY NAME1.FIRST NAME1.LAST ADDRESS ADDRESS2 CITY STATE ZIP.10 HOME.PHONE WORK.PHONE&nbsp 
     <br />CELLULAR EMAIL BLOCK.PHONE BLOCK.EMAIL BLOCK.MAIL SOLD LAST-SERVICE SERIAL MAKE MODEL YEAR<br /><br /><br /><br />`
 
+document.getElementById('copyText2').addEventListener('click', function() {executeCopy(messageTwo)})
+document.getElementById('copyText3').addEventListener('click', function() {executeCopy(messageThree)})
+document.getElementById('copyText4').addEventListener('click', function() {executeCopy(messageFour)})
+document.getElementById('copyText5').addEventListener('click', function() {executeCopy(messageFive)})
+document.getElementById('copyText6').addEventListener('click', function() {executeCopy(messageSix)})
 })
 // const executeCopy = function(message){
 //     const copyHelper = document.createElement("input")
@@ -4695,11 +4692,7 @@ executeCopy = function(message){
     document.execCommand("copy")
     alert("English Statement has been copied to clipboard. ")
 }
-document.getElementById('copyText2').addEventListener('click', function() {executeCopy(messageTwo)})
-document.getElementById('copyText3').addEventListener('click', function() {executeCopy(messageThree)})
-document.getElementById('copyText4').addEventListener('click', function() {executeCopy(messageFour)})
-document.getElementById('copyText5').addEventListener('click', function() {executeCopy(messageFive)})
-document.getElementById('copyText6').addEventListener('click', function() {executeCopy(messageSix)})
+
 
 
 // copyText2.addEventListener("click", e=>{
@@ -4720,6 +4713,12 @@ document.getElementById('copyText6').addEventListener('click', function() {execu
 //   })
 //document.getElementById('copyText2').addEventListener('click', function() {executeCopy(function() {inputHelper(messageTwo.innerHTML)})})
 
-
+// DATE Calculator
+dateForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const newDate = moment(psDate.value).subtract(subMonth.value,'months')
+    const formatDate = moment(newDate).format("YYYY-MM-DD")
+    messageOne.textContent = formatDate
+ })
 
 },{"moment":1}]},{},[2]);
