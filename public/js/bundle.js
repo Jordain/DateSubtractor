@@ -4606,13 +4606,21 @@
 const moment = require('moment')
 
 
-
-
-const dateForm = document.querySelector('form')
-
+// DATE fields
+const dateForm = document.getElementById('dateForm')
 const psDate = document.querySelector('input.psDate')
 const subMonth = document.querySelector('input.subMonth')
 const messageOne = document.querySelector('#message-1')
+
+// DATE Calculator
+dateForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const newDate = moment(psDate.value).subtract(subMonth.value,'months')
+    const formatDate = moment(newDate).format("YYYY-MM-DD")
+    messageOne.textContent = formatDate
+ })
+
+
 const messageTwo = document.querySelector('#message-2')
 const messageThree = document.querySelector('#message-3')
 const messageFour = document.querySelector('#message-4')
@@ -4711,14 +4719,6 @@ document.getElementById('copyText6').addEventListener('click', function() {execu
     
 //   })
 //document.getElementById('copyText2').addEventListener('click', function() {executeCopy(function() {inputHelper(messageTwo.innerHTML)})})
-
-
-dateForm.addEventListener('submit', (e) => {
-   e.preventDefault()
-   const newDate = moment(psDate.value).subtract(subMonth.value,'months')
-   const formatDate = moment(newDate).format("YYYY-MM-DD")
-   messageOne.textContent = formatDate
-})
 
 
 
