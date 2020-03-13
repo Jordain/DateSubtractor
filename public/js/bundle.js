@@ -4623,7 +4623,7 @@ const messageSix = document.querySelector('#message-6')
 
 addEventListener('load', (e) => {
     e.preventDefault()
-    const date = moment().subtract(5, 'years')
+    const date = moment().subtract(7, 'years')
     const formatDate = moment(date).format("DDMMMYY")
     console.log(formatDate)
     messageTwo.innerHTML = `SSELECT FI-WIP WITH MAKE-NEW EQ "BMW" AND WITH BUYER-FIRST NE "" AND WITH SOLD GE "${formatDate}"<br /><br />
