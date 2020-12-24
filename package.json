@@ -4,7 +4,7 @@
   "description": "",
   "main": "Date.js",
   "dependencies": {
-    "date-and-time": "^0.9.0",
+    "date-and-time": "^0.14.2",
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "nodemon": "^2.0.2"
