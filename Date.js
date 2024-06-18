@@ -27,6 +27,4 @@ app.listen(port, () => {
 
 //testing commit and then going back to a checkpoint
 
-//Did the checkout now lets see doing experimental stuff and see if it commits.
-
 //So it will keep the commits until I create a new branch otherwise I should delete and reclone it to reduce issues when updating.
