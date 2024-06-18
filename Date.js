@@ -26,3 +26,5 @@ app.listen(port, () => {
 })
 
 //testing commit and then going back to a checkpoint
+
+//You shouldn't be able to see this text after I go bakc a checkpoint
